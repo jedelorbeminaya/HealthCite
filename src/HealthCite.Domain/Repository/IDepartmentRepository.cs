@@ -8,8 +8,8 @@ namespace HealthCite.Domain.Repository
 {
     public interface IDepartmentRepository
     {
-        Departamentos GetDepartmentById(int departamentoid);
-        Departamentos UpdateDepartmentById(int departamentoId);
-        Departamentos DeleteDepartmentById(int departamentoId);
+        Consultorios GetDepartmentById(int departamentoid);
+        Consultorios UpdateDepartmentById(int departamentoId);
+        Consultorios DeleteDepartmentById(int departamentoId);
     }
 }

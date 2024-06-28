@@ -9,10 +9,10 @@ namespace HealthCite.Domain.Repository
 {
     public interface IPatientRepository
     {
-        Paciente GetPatientById(int patientId);
-        Paciente GetPacienteByName(string name);
-        Paciente UpdatePatientById(int patientId);
-        Paciente DeletePatientById(int patientId);
+        Pacientes GetPatientById(int patientId);
+        Pacientes GetPacienteByName(string name);
+        Pacientes UpdatePatientById(int patientId);
+        Pacientes DeletePatientById(int patientId);
 
     }
 }

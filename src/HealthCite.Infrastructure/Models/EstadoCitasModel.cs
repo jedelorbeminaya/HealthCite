@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace HealthCite.Infrastructure.Models
 {
-    public class DepartamentoModel
+    public class EstadoCitasModel
     {
-
+        public int Id { get; set; }
+        public string estado { get; set; }
     }
 }

@@ -8,10 +8,10 @@ public class MedicalContext : DbContext
 {
     public MedicalContext(DbContextOptions<MedicalContext> options) : base(options) { }
 
-    public DbSet<CitaModel> Citas { get; set; }
-    public DbSet<DepartamentoModel> Departamento { get; set; }
-    public DbSet<DoctorModel> Doctor { get; set; }
-    public DbSet<PacienteModel> Paciente { get; set; }
+    public DbSet<CitasModel> Citas { get; set; }
+    public DbSet<ConsultoriosModel> Departamento { get; set; }
+    public DbSet<DoctoresModel> Doctor { get; set; }
+    public DbSet<PacientesModel> Paciente { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

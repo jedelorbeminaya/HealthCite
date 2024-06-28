@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HealthCite.Infrastructure.Models
+namespace HealthCite.Infrastructure.Repositories
 {
-    public class DoctorModel
+    public class RolesRepository
     {
-
     }
 }
