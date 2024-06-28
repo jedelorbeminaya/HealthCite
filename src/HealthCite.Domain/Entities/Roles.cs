@@ -1,14 +1,14 @@
-﻿using System;
+﻿using HealthCite.Domain.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HealthCite.Domain.Core;
 
 namespace HealthCite.Domain.Entities
 {
-    public class Paciente : Persona
+    public class Roles:BaseEntity
     {
-        public string FechaNacimiento { get; set; } = string.Empty;
+        public string rol { get; set; }
     }
 }

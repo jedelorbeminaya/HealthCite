@@ -1,8 +1,8 @@
-﻿using static HealthCite.Domain.Entities.Paciente;
+﻿using static HealthCite.Domain.Entities.Pacientes;
 
 namespace HealthCite.Domain.Core
 {
-    public abstract class BaseEntity
+    public  class BaseEntity
     {
         public int Id { get; set; }
     }

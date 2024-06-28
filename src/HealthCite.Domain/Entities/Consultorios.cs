@@ -7,8 +7,9 @@ using HealthCite.Domain.Core;
 
 namespace HealthCite.Domain.Entities
 {
-    public class Departamentos : Persona
+    public class Consultorios : BaseEntity
     {
-        public string Especialidad { get; set; } = string.Empty;
+        public string nombre { get; set; }
+        public int especialidad_id { get; set; }
     }
 }

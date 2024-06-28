@@ -10,10 +10,10 @@ namespace HealthCite.Domain.Repository
 {
     public interface IDoctorRepository
     {
-        Doctor GetDoctorById(int doctorid);
-        Doctor GetDoctorByName(string name);
-        Doctor UpdateDoctor(Doctor doctor);
-        Doctor DeleteDoctor(int doctorId);
+        Doctores GetDoctorById(int doctorid);
+        Doctores GetDoctorByName(string name);
+        Doctores UpdateDoctor(Doctores doctor);
+        Doctores DeleteDoctor(int doctorId);
     }
 
 }
