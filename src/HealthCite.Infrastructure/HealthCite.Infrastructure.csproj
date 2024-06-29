@@ -15,4 +15,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HealthCite.Domain\HealthCite.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
