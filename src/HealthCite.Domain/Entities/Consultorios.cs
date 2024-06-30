@@ -9,7 +9,9 @@ namespace HealthCite.Domain.Entities
 {
     public class Consultorios : BaseEntity
     {
-        public string nombre { get; set; }
-        public int especialidad_id { get; set; }
+        public string Nombre { get; set; } = string.Empty;
+        public virtual ICollection<Especialidades> EspecialidadID { get; set; } = new List<Especialidades>();
+        public virtual Doctores? Doctores { get; set; }
+        public virtual Citas? CitasID { get; set; } 
     }
 }

@@ -9,6 +9,7 @@ namespace HealthCite.Domain.Entities
 {
     public class Roles:BaseEntity
     {
-        public string rol { get; set; }
+        public string Rol { get; set; } = string.Empty;
+        public virtual Usuarios? UsuariosID { get; set; } 
     }
 }
