@@ -9,10 +9,10 @@ namespace HealthCite.Domain.Entities
 {
     public class HistorialMedico : BaseEntity
     {
-        public int paciente_id { get; set; }
-        public string antecedentes { get; set; }
-        public string enfermedad { get; set; }
-        public string medicaciones_actuales { get; set; }
-        public string notas { get; set; }
+        public virtual ICollection<Pacientes> PacienteID { get; set; } = new List<Pacientes>();
+        public string Antecedentes { get; set; } = string.Empty;
+        public string Enfermedad { get; set; } = string.Empty;
+        public string MedicacionesActuales { get; set; } = string.Empty;
+        public string Notas { get; set; } = string.Empty;
     }
 }

@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HealthCite.Infrastructure.Models
+namespace HealthCite.Application.Contracts
 {
-    public class GenerosModel
+    internal interface IRolesService
     {
-        public string genero { get; set; }
     }
 }
