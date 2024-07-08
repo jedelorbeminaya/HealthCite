@@ -15,7 +15,7 @@ namespace HealthCite.Infrastructure
         
         //public DbSet<Generos> Generos { get; set; }
 
-        public DbSet<HistorialMedico> HistoriaMedico { get; set; }
+        //public DbSet<HistorialMedico> HistoriaMedico { get; set; }
         public DbSet<Pacientes> Pacientes { get; set; }
         public DbSet<Roles> Roles { get; set; }
         public DbSet<Usuarios> Usuarios { get; set; }
@@ -24,6 +24,11 @@ namespace HealthCite.Infrastructure
         //{
         //    base.OnModelCreating(modelBuilder);
 
+        //}
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer("SqlMainConnection");
         //}
     }
 }

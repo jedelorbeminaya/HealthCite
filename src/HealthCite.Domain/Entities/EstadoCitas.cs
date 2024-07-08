@@ -9,7 +9,9 @@ namespace HealthCite.Domain.Entities
 {
     public class EstadoCitas : BaseEntity
     {
+        public virtual ICollection<Citas> Citas { get; set; } = new List<Citas>();
+        //public virtual Citas? CitaID { get; set; } 
         public string Estado { get; set; } = string.Empty;
-        public virtual Citas? CitaID { get; set; } 
+
     }
 }
