@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HealthCite.Domain\HealthCite.Domain.csproj" />
     <ProjectReference Include="..\HealthCite.Infrastructure\HealthCite.Infrastructure.csproj" />
   </ItemGroup>
 

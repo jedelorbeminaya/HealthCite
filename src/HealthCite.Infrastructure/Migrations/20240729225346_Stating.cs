@@ -1,12 +1,11 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace HealthCite.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialitationNew : Migration
+    public partial class Stating : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -35,6 +34,19 @@ namespace HealthCite.Infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_EstadosCitas", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Generos",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Genero = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Generos", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -70,6 +82,29 @@ namespace HealthCite.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Pacientes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    GeneroId = table.Column<int>(type: "int", nullable: true),
+                    FechaNacimiento = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Telefono = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Direccion = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Pacientes", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Pacientes_Generos_GeneroId",
+                        column: x => x.GeneroId,
+                        principalTable: "Generos",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Usuarios",
                 columns: table => new
                 {
@@ -97,9 +132,8 @@ namespace HealthCite.Infrastructure.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ConsultorioId = table.Column<int>(type: "int", nullable: true),
-                    UsuarioId = table.Column<int>(type: "int", nullable: true),
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Genero = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    GeneroId = table.Column<int>(type: "int", nullable: true),
                     Telefono = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
@@ -112,33 +146,9 @@ namespace HealthCite.Infrastructure.Migrations
                         principalTable: "Consultorios",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Doctores_Usuarios_UsuarioId",
-                        column: x => x.UsuarioId,
-                        principalTable: "Usuarios",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Pacientes",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    UsuarioId = table.Column<int>(type: "int", nullable: true),
-                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Genero = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FechaNacimiento = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Telefono = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Direccion = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Pacientes", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Pacientes_Usuarios_UsuarioId",
-                        column: x => x.UsuarioId,
-                        principalTable: "Usuarios",
+                        name: "FK_Doctores_Generos_GeneroId",
+                        column: x => x.GeneroId,
+                        principalTable: "Generos",
                         principalColumn: "Id");
                 });
 
@@ -152,7 +162,7 @@ namespace HealthCite.Infrastructure.Migrations
                     DoctorId = table.Column<int>(type: "int", nullable: true),
                     ConsultorioId = table.Column<int>(type: "int", nullable: true),
                     EstadoCitaId = table.Column<int>(type: "int", nullable: true),
-                    FechaCita = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    FechaCita = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Motivo = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -211,14 +221,14 @@ namespace HealthCite.Infrastructure.Migrations
                 column: "ConsultorioId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Doctores_UsuarioId",
+                name: "IX_Doctores_GeneroId",
                 table: "Doctores",
-                column: "UsuarioId");
+                column: "GeneroId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Pacientes_UsuarioId",
+                name: "IX_Pacientes_GeneroId",
                 table: "Pacientes",
-                column: "UsuarioId");
+                column: "GeneroId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Usuarios_RolId",
@@ -233,6 +243,9 @@ namespace HealthCite.Infrastructure.Migrations
                 name: "Citas");
 
             migrationBuilder.DropTable(
+                name: "Usuarios");
+
+            migrationBuilder.DropTable(
                 name: "Doctores");
 
             migrationBuilder.DropTable(
@@ -242,16 +255,16 @@ namespace HealthCite.Infrastructure.Migrations
                 name: "Pacientes");
 
             migrationBuilder.DropTable(
+                name: "Roles");
+
+            migrationBuilder.DropTable(
                 name: "Consultorios");
 
             migrationBuilder.DropTable(
-                name: "Usuarios");
+                name: "Generos");
 
             migrationBuilder.DropTable(
                 name: "Especialidades");
-
-            migrationBuilder.DropTable(
-                name: "Roles");
         }
     }
 }

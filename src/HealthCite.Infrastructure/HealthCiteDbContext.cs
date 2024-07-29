@@ -13,7 +13,7 @@ namespace HealthCite.Infrastructure
         public DbSet<Especialidades> Especialidades { get; set; }
         public DbSet<EstadoCitas> EstadosCitas { get; set; }
         
-        //public DbSet<Generos> Generos { get; set; }
+        public DbSet<Generos> Generos { get; set; }
 
         //public DbSet<HistorialMedico> HistoriaMedico { get; set; }
         public DbSet<Pacientes> Pacientes { get; set; }

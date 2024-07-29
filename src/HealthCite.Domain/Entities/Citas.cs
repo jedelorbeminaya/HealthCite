@@ -16,7 +16,7 @@ namespace HealthCite.Domain.Entities
         public virtual Consultorios? Consultorio { get; set; }
         //public virtual ICollection<Consultorios> ConsultorioID { get; set; } = new List<Consultorios>();
         public virtual EstadoCitas? EstadoCita { get; set; }
-        public DateTime FechaCita { get; set; }
+        public string FechaCita { get; set; } = string.Empty;
         public string Motivo { get; set; } = string.Empty;
         
     }
