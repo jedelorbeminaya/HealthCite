@@ -18,7 +18,7 @@ namespace HealthCiteDb.Infrastructure
                     .AddJsonFile("appsettings.Development.json")
                     .Build();
 
-                var connectionString = configuration.GetConnectionString("conexion");
+                var connectionString = configuration.GetConnectionString("SqlMainConnection");
                 optionsBuilder.UseSqlServer(connectionString);
 
                 return new HealthCiteDbContext(optionsBuilder.Options);
