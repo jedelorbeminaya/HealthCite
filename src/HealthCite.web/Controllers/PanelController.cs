@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace HealthCite.web.Controllers
 {
-    public class HomeController : Controller
+    public class PanelController : Controller
     {
         //private readonly ILogger<HomeController> _logger;
         //public HomeController(ILogger<HomeController> logger)
@@ -17,15 +17,15 @@ namespace HealthCite.web.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult AdminPanel()
         {
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        //public IActionResult Error()
+        //{
+        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        //}
     }
 }
