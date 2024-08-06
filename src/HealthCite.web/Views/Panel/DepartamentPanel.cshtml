@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "HealthCite-DepartamentPanel";
+    Layout = "_LayoutForPanel";
+}
+<div class="container-fluid">
+    <h1 class="mt-4 text-center">DEPARTAMENTO CLINICO</h1>
+
+    <div class="bg-dark w-100 p-3 border-3">
+        <div class="text-center">
+            <h4 class="pt-3 text-light">FORMULARIO DE REGISTRO</h4>
+            <hr class="border border-dark border-3 opacity-75">
+        </div>
+        <form class="container">
+            <div class="mb-4">
+                <label class="text-light" for="name">NOMBRE:</label>
+                <input class="form-control" type="text" id="name" name="name"  placeholder="Ingrese su nombre" required>
+            </div>
+
+            <div class="mb-4">
+                <label class="text-light" for="speciality">ESPECIALIDAD:</label>
+                <select class="form-select form-select-lg mb-3" aria-label="Large select example">
+                    <option selected>Selecciones la especialidad del departamento...</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                </select>
+            </div>
+
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <input class="form-control btn btn-warning fw-bold" type="submit" value="REGISTRAR" name="submit" />
+            </div>
+        </form>  
+    </div>
+
+    <br />
+    <br />
+
+    <div class="bg-dark w-100 p-3 border-3">
+
+        <div class="text-center">
+            <h4 class="text-light">DATOS REGISTRADOS</h4>
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-light text-center" scope="col">NOMBRE</th>
+                    <th class="text-light text-center" scope="col">ESPECIALIDAD</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-light text-center">Mark</td>
+                    <td class="text-light text-center">Otto</td>
+                </tr>
+                <tr>
+                    <td class="text-light text-center">Jacob</td>
+                    <td class="text-light text-center">Thornton</td>
+                </tr>
+                <tr>
+                    <td class="text-light text-center">Larry the Bird</td>
+                    <td class="text-light text-center">twitter</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <br />
+    <br />
+
+</div>

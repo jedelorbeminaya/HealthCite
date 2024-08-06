@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" />
     <link rel="stylesheet" href="~/lib/admin-template/css/styles.css" asp-append-version="true" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 <body class="sb-nav-fixed">
             @*
@@ -53,15 +52,15 @@
                             Dashboard
                         </a>
                         <div class="sb-sidenav-menu-heading">Interface</div>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" asp-action="MedicalPanel">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-users"></i></div>
                             Personal Medico
                         </a>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" asp-action="DepartamentPanel">
                             <div class="sb-nav-link-icon"><i class="fa-regular fa-building"></i></div>
                             Departamentos
                         </a>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" asp-action="AppointmentPanel">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-file"></i></div>
                             Citas Reservadas
                         </a>

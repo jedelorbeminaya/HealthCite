@@ -23,7 +23,6 @@
         <div class="mb-4">
             <label for="generate">GENERO:</label>
             <select class="form-select form-select-lg mb-3" aria-label="Large select example">
-                <option selected>Open this select menu</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
             </select>
@@ -31,18 +30,20 @@
         
         <div class="mb-4">
         <label for="email">CORREO ELECTRONICO:</label>
-        <input class="form-control" type="email" id="email" name="email" required>
+        <input class="form-control" type="email" id="email" name="email" placeholder="Introduzca su correo electronico" required>
         </div>
 
+        @* 
         <div class="mb-4">
         <label for="address">DIRECCION POSTAL:</label>
         <input class="form-control" type="text" id="address" name="address" required>
-        </div>
+        </div> 
+        *@
 
         <div class="mb-4">
-            <label for="department">GENERO:</label>
+            <label for="departament">CONSULTORIO A VISITAR:</label>
             <select class="form-select form-select-lg mb-3" aria-label="Large select example">
-                <option selected>Selecciones el departamento...</option>
+                <option selected>Seleccione el departamento</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
             </select>
@@ -51,6 +52,13 @@
         <div class="mb-4">
         <label for="date">FECHA DE RESERVACION:</label>
         <input class="form-control" type="date" id="date" name="datarequest" required>
+        </div>
+
+        <div class="mb-4">
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                <label for="floatingTextarea">MOTIVO:</label>
+            </div>
         </div>
 
             <div class="d-grid gap-2 col-6 mx-auto">
