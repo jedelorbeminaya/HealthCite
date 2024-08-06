@@ -22,6 +22,26 @@ namespace HealthCite.web.Controllers
             return View();
         }
 
+        public IActionResult MedicalPanel()
+        {
+            return View();
+        }
+
+        public IActionResult DepartamentPanel()
+        {
+            return View();
+        }
+
+        public IActionResult AppointmentPanel()
+        {
+            return View();
+        }
+
+        public IActionResult AppointmentDetails()
+        {
+            return View();
+        }
+
         //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         //public IActionResult Error()
         //{
