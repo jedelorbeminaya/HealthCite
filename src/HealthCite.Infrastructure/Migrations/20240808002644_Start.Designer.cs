@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HealthCite.Infrastructure.Migrations
 {
     [DbContext(typeof(HealthCiteDbContext))]
-    [Migration("20240729225346_Stating")]
-    partial class Stating
+    [Migration("20240808002644_Start")]
+    partial class Start
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,32 +36,34 @@ namespace HealthCite.Infrastructure.Migrations
                     b.Property<int?>("ConsultorioId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("DoctorId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("EstadoCitaId")
-                        .HasColumnType("int");
+                    b.Property<string>("CorroElectronico")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FechaCita")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("FechaNacimiento")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("GeneroId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Motivo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PacienteId")
-                        .HasColumnType("int");
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ConsultorioId");
 
-                    b.HasIndex("DoctorId");
-
-                    b.HasIndex("EstadoCitaId");
-
-                    b.HasIndex("PacienteId");
+                    b.HasIndex("GeneroId");
 
                     b.ToTable("Citas");
                 });
@@ -140,23 +142,6 @@ namespace HealthCite.Infrastructure.Migrations
                     b.ToTable("Especialidades");
                 });
 
-            modelBuilder.Entity("HealthCite.Domain.Entities.EstadoCitas", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Estado")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("EstadosCitas");
-                });
-
             modelBuilder.Entity("HealthCite.Domain.Entities.Generos", b =>
                 {
                     b.Property<int>("Id")
@@ -172,40 +157,6 @@ namespace HealthCite.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Generos");
-                });
-
-            modelBuilder.Entity("HealthCite.Domain.Entities.Pacientes", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Direccion")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FechaNacimiento")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("GeneroId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Nombre")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Telefono")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GeneroId");
-
-                    b.ToTable("Pacientes");
                 });
 
             modelBuilder.Entity("HealthCite.Domain.Entities.Roles", b =>
@@ -261,25 +212,13 @@ namespace HealthCite.Infrastructure.Migrations
                         .WithMany("Citas")
                         .HasForeignKey("ConsultorioId");
 
-                    b.HasOne("HealthCite.Domain.Entities.Doctores", "Doctor")
-                        .WithMany("Cita")
-                        .HasForeignKey("DoctorId");
-
-                    b.HasOne("HealthCite.Domain.Entities.EstadoCitas", "EstadoCita")
+                    b.HasOne("HealthCite.Domain.Entities.Generos", "Genero")
                         .WithMany("Citas")
-                        .HasForeignKey("EstadoCitaId");
-
-                    b.HasOne("HealthCite.Domain.Entities.Pacientes", "Paciente")
-                        .WithMany("Citas")
-                        .HasForeignKey("PacienteId");
+                        .HasForeignKey("GeneroId");
 
                     b.Navigation("Consultorio");
 
-                    b.Navigation("Doctor");
-
-                    b.Navigation("EstadoCita");
-
-                    b.Navigation("Paciente");
+                    b.Navigation("Genero");
                 });
 
             modelBuilder.Entity("HealthCite.Domain.Entities.Consultorios", b =>
@@ -298,19 +237,10 @@ namespace HealthCite.Infrastructure.Migrations
                         .HasForeignKey("ConsultorioId");
 
                     b.HasOne("HealthCite.Domain.Entities.Generos", "Genero")
-                        .WithMany("Citas")
+                        .WithMany("Doctores")
                         .HasForeignKey("GeneroId");
 
                     b.Navigation("Consultorio");
-
-                    b.Navigation("Genero");
-                });
-
-            modelBuilder.Entity("HealthCite.Domain.Entities.Pacientes", b =>
-                {
-                    b.HasOne("HealthCite.Domain.Entities.Generos", "Genero")
-                        .WithMany("Doctores")
-                        .HasForeignKey("GeneroId");
 
                     b.Navigation("Genero");
                 });
@@ -331,19 +261,9 @@ namespace HealthCite.Infrastructure.Migrations
                     b.Navigation("Doctores");
                 });
 
-            modelBuilder.Entity("HealthCite.Domain.Entities.Doctores", b =>
-                {
-                    b.Navigation("Cita");
-                });
-
             modelBuilder.Entity("HealthCite.Domain.Entities.Especialidades", b =>
                 {
                     b.Navigation("Consultorios");
-                });
-
-            modelBuilder.Entity("HealthCite.Domain.Entities.EstadoCitas", b =>
-                {
-                    b.Navigation("Citas");
                 });
 
             modelBuilder.Entity("HealthCite.Domain.Entities.Generos", b =>
@@ -351,11 +271,6 @@ namespace HealthCite.Infrastructure.Migrations
                     b.Navigation("Citas");
 
                     b.Navigation("Doctores");
-                });
-
-            modelBuilder.Entity("HealthCite.Domain.Entities.Pacientes", b =>
-                {
-                    b.Navigation("Citas");
                 });
 
             modelBuilder.Entity("HealthCite.Domain.Entities.Roles", b =>
