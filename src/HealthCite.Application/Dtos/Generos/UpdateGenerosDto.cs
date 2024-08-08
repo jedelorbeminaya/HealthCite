@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HealthCite.Infrastructure.Interfaces
+namespace HealthCite.Application.Dtos.Usuarios
 {
-    public interface IPacientesRepository
+    internal class UpdateGenerosDto : BaseUsuariosDto
     {
-
     }
 }

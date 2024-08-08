@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HealthCite.Infrastructure.Interfaces
+namespace HealthCite.Application.Contracts
 {
-    internal interface IEstadoCitasRepository
+    internal interface IGenerosService
     {
     }
 }

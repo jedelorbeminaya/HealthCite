@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HealthCite.Application.Dtos.EstadoCitas
+namespace HealthCite.Application.Services
 {
-    internal class BaseEstadoCitasDto
+    public class GenerosService
     {
     }
 }
