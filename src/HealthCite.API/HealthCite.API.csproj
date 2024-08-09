@@ -18,7 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HealthCite.web\HealthCite.Web.csproj" />
+    <ProjectReference Include="..\HealthCite.Domain\HealthCite.Domain.csproj" />
+    <ProjectReference Include="..\HealthCite.Infrastructure\HealthCite.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
