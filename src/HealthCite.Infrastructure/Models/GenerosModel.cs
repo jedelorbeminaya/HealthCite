@@ -7,11 +7,11 @@ namespace HealthCite.Domain.Entities
         [Key]
         public int Id { get; set; }
         
-        public virtual ICollection<Doctores> Citas { get; set; } = new List<Doctores>();
-        public virtual ICollection<Doctores> Doctores { get; set; } = new List<Doctores>();
+        public ICollection<Citas>? Citas { get; set; } 
+        public ICollection<Doctores>? Doctores { get; set; }
         
-        [Required(ErrorMessage = "Debe introducir el nombre del Genero.")]
-        public string Genero { get; set; } = string.Empty;
+        [Required]
+        public string? Genero { get; set; }
 
     }
 }

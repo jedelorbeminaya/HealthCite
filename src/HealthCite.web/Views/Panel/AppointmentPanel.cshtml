@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<HealthCite.Domain.Entities.Citas>
+@{
     ViewData["Title"] = "HealthCite-CitasPanel";
     Layout = "_LayoutForPanel";
 }
@@ -16,18 +17,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="text-light text-center"><a asp-action="AppointmentDetails">Mark</a></td>
-                    <td class="text-light text-center">18-06-2024</td>
-                </tr>
-                <tr>
-                    <td class="text-light text-center"><a asp-action="AppointmentDetails">Otto</a></td>
-                    <td class="text-light text-center">20-06-2024</td>
-                </tr>
-                <tr>
-                    <td class="text-light text-center"><a asp-action="AppointmentDetails">Mdo</a></td>
-                    <td class="text-light text-center">25-06-2024</td>
-                </tr>
+                @if (Model != null && Model.Any())
+                {
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="text-light text-center"><a class="nav-link" asp-action="AppointmentDetails" asp-route-id="@item.Id">@item.Nombre</a></td>
+                            <td class="text-light text-center">@item.FechaCita</td>
+                        </tr>
+                    }
+                }
+                
             </tbody>
         </table>
     </div>

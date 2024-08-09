@@ -1,4 +1,5 @@
-﻿@{
+﻿@model HealthCite.Web.ViewModels.Citas.CreateCita
+@{
     ViewData["Title"] = "HealthCite-FormCite";
     Layout = "_LayoutWithHeader";
 }
@@ -9,55 +10,45 @@
         <h6 class="fw-normal">¡INSERTANDO LOS DATOS SOLICITADOS!</h6>
         <hr class="border border-warning border-3 opacity-75">
     </div>
-    <form class="container">
+    <form class="container" asp-controller="Home" asp-action="Index" method="post">
         <div class="mb-4">
-            <label for="name">NOMBRE:</label>
-            <input class="form-control" type="text" id="name" placeholder="Ingrese su nombre" name="name" required>
+            <label asp-for="Nombre">NOMBRE:</label>
+            <input asp-for="Nombre" class="form-control" type="text" placeholder="Ingrese su nombre" required>
         </div>
         
         <div class="mb-4">
-        <label for="date">FECHA DE NACIMIENTO:</label>
-        <input class="form-control" type="date" id="date" name="datebirh" required>
+        <label asp-for="FechaNacimiento">FECHA DE NACIMIENTO:</label>
+        <input asp-for="FechaNacimiento" class="form-control" type="date" required>
         </div>
 
         <div class="mb-4">
-            <label for="generate">GENERO:</label>
-            <select class="form-select form-select-lg mb-3" aria-label="Large select example">
-                <option value="1">One</option>
-                <option value="2">Two</option>
+            <label>GENERO:</label>
+            <select asp-for="GeneroId" class="form-select form-select-lg mb-3" asp-items="ViewBag.Generos">
+                <option>-- seleccione un genero --</option>
             </select>
         </div>
         
         <div class="mb-4">
-        <label for="email">CORREO ELECTRONICO:</label>
-        <input class="form-control" type="email" id="email" name="email" placeholder="Introduzca su correo electronico" required>
+        <label asp-for="CorroElectronico">CORREO ELECTRONICO:</label>
+        <input asp-for="CorroElectronico"  class="form-control" type="email" placeholder="Introduzca su correo electronico" required>
         </div>
 
-        @* 
         <div class="mb-4">
-        <label for="address">DIRECCION POSTAL:</label>
-        <input class="form-control" type="text" id="address" name="address" required>
-        </div> 
-        *@
-
-        <div class="mb-4">
-            <label for="departament">CONSULTORIO A VISITAR:</label>
-            <select class="form-select form-select-lg mb-3" aria-label="Large select example">
-                <option selected>Seleccione el departamento</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
+            <label>CONSULTORIO A VISITAR:</label>
+            <select asp-for="ConsultorioId" class="form-select form-select-lg mb-3" asp-items="ViewBag.Consultorios">
+                <option>-- seleccione un departamento --</option>
             </select>
         </div>
 
         <div class="mb-4">
-        <label for="date">FECHA DE RESERVACION:</label>
-        <input class="form-control" type="date" id="date" name="datarequest" required>
+        <label asp-for="FechaCita">FECHA DE RESERVACION:</label>
+        <input asp-for="FechaCita"  class="form-control" type="date" required>
         </div>
 
         <div class="mb-4">
             <div class="form-floating">
-                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-                <label for="floatingTextarea">MOTIVO:</label>
+                <textarea asp-for="Motivo" class="form-control" placeholder="Leave a comment here"></textarea>
+                <label asp-for="Motivo">MOTIVO:</label>
             </div>
         </div>
 

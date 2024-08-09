@@ -6,8 +6,8 @@ namespace HealthCite.Domain.Entities
     {
         public virtual Especialidades? Especialidad { get; set; }
         public virtual ICollection<Doctores> Doctores { get; set; } = new List<Doctores>();
-        public virtual ICollection<Citas> Citas { get; set; } = new List<Citas>();
-        public string Nombre { get; set; } = string.Empty;
+        public ICollection<Citas>? Citas { get; set; }
+        public string? Nombre { get; set; }
 
     }
 }

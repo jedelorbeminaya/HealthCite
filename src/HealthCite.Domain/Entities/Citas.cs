@@ -1,12 +1,19 @@
 ﻿using HealthCite.Domain.Core;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HealthCite.Domain.Entities
 {
-    public class Citas : BaseEntity
+    public class Citas
     {
-        public virtual Generos? Genero { get; set; }
+        public int Id { get; set; }
 
-        public virtual Consultorios? Consultorio { get; set; }
+        [ForeignKey("Genero")]
+        public int GeneroId { get; set; }
+        public Generos? Genero { get; set; }
+
+        [ForeignKey("Consultorio")]
+        public int ConsultorioId { get; set; }
+        public Consultorios? Consultorio { get; set; }
 
         public string Nombre { get; set; } = string.Empty;
 
